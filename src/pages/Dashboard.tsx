@@ -1,15 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { FaRegUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Logout from "../components/Logout";
 import { RootState } from "../store/store";
-import { use } from "react";
 
 const Dashboard = () => {
   const [searchParams] = useSearchParams();
   const redirectUri = searchParams.get("redirect");
-  const provider = searchParams.get("provider");
   const user = useSelector((state: RootState) => state.auth.user);
 
   function handleRedirect() {
